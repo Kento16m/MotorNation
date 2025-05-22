@@ -1,21 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MOTOR NATION - Vehículos Nuevos y Usados</title>
-    <meta name="description" content="La mejor experiencia en compra de vehículos nuevos y usados en Paraguay. Calidad, confianza y el mejor servicio." />
-    <meta name="author" content="MOTOR NATION" />
-
-    <meta property="og:title" content="MOTOR NATION - Vehículos Nuevos y Usados" />
-    <meta property="og:description" content="La mejor experiencia en compra de vehículos nuevos y usados en Paraguay. Calidad, confianza y el mejor servicio." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@motornation" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <title>MOTOR NATION - Vehículos Nuevos y Usados en Paraguay</title>
+ 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +28,7 @@
       z-index: 9999;
       transition: opacity 0.6s ease, visibility 0.6s ease;
     }
-  </style>
+    </style>
   </head>
 
   <body>
@@ -49,6 +38,14 @@
         <div class="preloader-spinner"></div>
       </div>
     </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/595XXXXXXXXX?text=Hola%20Motor%20Nation,%20estoy%20interesado%20en%20un%20vehículo" class="whatsapp-float" target="_blank">
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <div class="whatsapp-tooltip">¡Contáctanos ahora para encontrar tu vehículo ideal!</div>
+    </a>
 
     <!-- Header -->
     <header id="header" class="header">
@@ -76,7 +73,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-overlay"></div>
-      <img src="https://th.bing.com/th/id/R.34fa96025cd5372c8c6293890e45b688?rik=HRxjDafbWub6Hg&pid=ImgRaw&r=0" alt="MOTOR NATION" class="hero-img">
+      <img src="https://th.bing.com/th/id/R.34fa96025cd5372c8c6293890e45b688?rik=HRxjDafbWub6Hg&pid=ImgRaw&r=0" alt="MOTOR NATION - Vehículos de calidad en Paraguay" class="hero-img">
       
       <div class="container hero-content">
         <div class="hero-text">
@@ -84,7 +81,7 @@
           <p class="fade-in">Descubre nuestra exclusiva colección de autos y motos, nuevos y usados, con la mejor calidad y precio del mercado.</p>
           <div class="hero-buttons fade-in">
             <a href="#vehicles" class="btn btn-primary">Ver Vehículos</a>
-            <a href="#contact" class="btn btn-outline">Contáctanos</a>
+            <a href="https://wa.me/595XXXXXXXXX?text=Hola%20Motor%20Nation,%20estoy%20interesado%20en%20un%20vehículo" class="btn btn-outline" target="_blank">Contáctanos por WhatsApp</a>
           </div>
         </div>
       </div>
@@ -96,20 +93,16 @@
         <h2 class="section-title">Nuestros Vehículos</h2>
         <p class="section-subtitle">Explora nuestra selección de autos y motos de las mejores marcas, con condiciones inmejorables y garantía de calidad.</p>
         
-        <div class="filter-buttons" id="filter-buttons">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="suv">SUV</button>
-          <button class="filter-btn" data-filter="sedan">Sedan</button>
-          <button class="filter-btn" data-filter="moto">Motos</button>
-          <button class="filter-btn" data-filter="camioneta">Camionetas</button>
-        </div>
+
         
-        <div class="vehicles-grid" id="vehicles-grid">
-          <!-- Los autos se agregan dinamicamente desde script.js -->
-        </div>
-        
-        <div class="text-center">
-          <a href="#" class="btn btn-dark">Ver todos los vehículos</a>
+        <div class="vehicles-grid-container">
+          <div class="vehicles-grid" id="vehicles-grid">
+            <!-- Los autos se agregan dinamicamente desde script.js -->
+          </div>
+          
+          <div class="vehicles-grid-overlay">
+            <a href="https://wa.me/595XXXXXXXXX?text=Hola%20Motor%20Nation,%20me%20gustaría%20ver%20más%20vehículos" class="btn btn-dark" target="_blank">Ver más</a>
+          </div>
         </div>
       </div>
     </section>
@@ -223,30 +216,16 @@
       </div>
     </section>
 
-    <!-- Seccion de Blogs -->
-    <section id="blog" class="section bg-light">
-      <div class="container">
-        <h2 class="section-title">Últimas Noticias</h2>
-        <p class="section-subtitle">Mantente al día con las últimas novedades del mundo automotor y consejos para tu vehículo.</p>
-        
-        <div class="blog-grid" id="blog-grid">
-          <!-- Los blogs se agregaran aqui dinamicamnete desde script.js  -->
-        </div>
-        
-        <div class="text-center">
-          <a href="#" class="btn btn-dark">Ver todas las noticias</a>
-        </div>
-      </div>
-    </section>
+    
 
-    <!-- Seccion de Contacto -->
+    <!-- Seccion de Contacto Actualizada -->
     <section id="contact" class="section">
       <div class="container">
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h2 class="section-title">Contáctanos</h2>
-            <p>Estamos aquí para ayudarte. No dudes en ponerte en contacto con nosotros para cualquier consulta o para programar una visita a nuestro showroom.</p>
-            
+        <h2 class="section-title">Contáctanos</h2>
+        <p class="section-subtitle">Estamos aquí para ayudarte a encontrar el vehículo perfecto. Contáctanos directamente por WhatsApp para una atención personalizada y rápida.</p>
+        
+        <div class="contact-container">
+          <div class="contact-info-column">
             <div class="contact-details">
               <div class="contact-item">
                 <div class="contact-icon">
@@ -299,14 +278,24 @@
               </div>
             </div>
             
-            <div class="map-container">
-              <h3>Ubicación</h3>
-              <div class="map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3608.041564997982!2d-57.568055824615875!3d-25.269187177664683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDE2JzA5LjEiUyA1N8KwMzMnNTUuNyJX!5e0!3m2!1sja!2spy!4v1747849807495!5m2!1sja!2spy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              </div>
+            <!-- Botón de WhatsApp mejorado -->
+            <div class="whatsapp-button-container">
+              <a href="https://wa.me/595XXXXXXXXX?text=Hola%20Motor%20Nation,%20estoy%20interesado%20en%20un%20vehículo" class="whatsapp-contact-btn" target="_blank">
+                <div class="whatsapp-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                </div>
+                <span>Contáctanos por WhatsApp</span>
+              </a>
             </div>
           </div>
           
-          
+          <div class="map-column">
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3608.041564997982!2d-57.568055824615875!3d-25.269187177664683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDE2JzA5LjEiUyA1N8KwMzMnNTUuNyJX!5e0!3m2!1sja!2spy!4v1747849807495!5m2!1sja!2spy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -348,16 +337,13 @@
               <li><a href="#home">Inicio</a></li>
               <li><a href="#vehicles">Vehículos</a></li>
               <li><a href="#about">Nosotros</a></li>
-              <li><a href="#testimonials">Testimonios</a></li>
               <li><a href="#blog">Blog</a></li>
-              <li><a href="#contact">Contacto</a></li>
             </ul>
           </div>
           
           <div class="footer-links">
             <h3>Servicios</h3>
             <ul>
-              <li><a href="#">Vehículos nuevos</a></li>
               <li><a href="#">Vehículos usados</a></li>
               <li><a href="#">Financiamiento</a></li>
               <li><a href="#">Trámites</a></li>
@@ -365,23 +351,22 @@
               <li><a href="#">Servicio técnico</a></li>
             </ul>
           </div>
-          
-          <div class="footer-newsletter">
-            <h3>Newsletter</h3>
-            <p>Suscríbete para recibir las últimas novedades y promociones exclusivas.</p>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Tu email" required>
-              <button type="submit" class="newsletter-btn">
-                <svg viewBox="0 0 24 24">
-                  <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </button>
-            </form>
+          <div class="footer-links">
+            <h3>Informacion de Contacto</h3>
+            <ul>
+              <li><a href="#">+595 21 123 4567</a></li>
+              <li><a href="#">info@motornation.com.py</a></li>
+              <li><a href="#">Av. Mariscal López 1234, Asunción, Paraguay</a></li>
+            </ul>
           </div>
+          
         </div>
         
         <div class="footer-bottom">
           <p>&copy; <span id="current-year"></span> Motor Nation. Todos los derechos reservados.</p>
+          <div class="creditos">
+              Desarrollado por <a href="https://kento16m.github.io/MiraiSoft/" target="_blank">MiraiSoft</a>
+        </div>
         </div>
       </div>
     </footer>
@@ -395,5 +380,91 @@
 
     <script src="script.js"></script>
     <script src="preloader.js"></script>
+    <script>
+      // Script para el efecto de partículas
+      document.addEventListener('DOMContentLoaded', function() {
+        // Crear partículas para el botón de WhatsApp en la sección de contacto
+        const whatsappButton = document.querySelector('.whatsapp-contact-btn');
+        if (whatsappButton) {
+          const buttonRect = whatsappButton.getBoundingClientRect();
+          
+          // Efecto de brillo al pasar el mouse
+          whatsappButton.addEventListener('mouseover', function() {
+            this.classList.add('glow');
+          });
+          
+          whatsappButton.addEventListener('mouseout', function() {
+            this.classList.remove('glow');
+          });
+        }
+        
+        // Modificar el script para mostrar solo 9 vehículos
+        const originalRenderVehicles = window.renderVehicles;
+        window.renderVehicles = function(filter = "all") {
+          const vehiclesGrid = document.getElementById("vehicles-grid");
+          vehiclesGrid.innerHTML = "";
+          
+          const filteredVehicles = filter === "all" 
+            ? window.vehicles 
+            : window.vehicles.filter(v => v.type.toLowerCase() === filter.toLowerCase());
+          
+          // Mostrar solo los primeros 9 vehículos
+          const displayVehicles = filteredVehicles.slice(0, 9);
+          
+          displayVehicles.forEach(vehicle => {
+            const vehicleCard = document.createElement("div");
+            vehicleCard.className = "vehicle-card";
+            
+            vehicleCard.innerHTML = `
+              <div class="vehicle-image">
+                <img src="${vehicle.image}" alt="${vehicle.name}">
+                ${vehicle.isNew ? `<span class="vehicle-badge">Nuevo</span>` : ""}
+              </div>
+              <div class="vehicle-content">
+                <h3 class="vehicle-title">${vehicle.name}</h3>
+                <div class="vehicle-price">${vehicle.price}</div>
+                <div class="vehicle-details">
+                  <div class="vehicle-detail">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-16a1 1 0 0 0-1 1v5a1 1 0 0 0 .4.8l3 2a1 1 0 0 0 1.2-1.6L13 11.4V7a1 1 0 0 0-1-1z"/>
+                    </svg>
+                    ${vehicle.year}
+                  </div>
+                  <div class="vehicle-detail">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M16 6l3 4h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1a3 3 0 0 1-6 0H8a3 3 0 0 1-6 0H1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2l3-4h10zm3 5.5L17 9H7l-2 2.5H16z"/>
+                    </svg>
+                    ${vehicle.transmission}
+                  </div>
+                  ${
+                    vehicle.mileage
+                      ? `
+                  <div class="vehicle-detail">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.54-4.54a5 5 0 0 1 7.08 0 1 1 0 0 1-1.42 1.42 3 3 0 0 0-4.24 0 1 1 0 0 1-1.42-1.42zM9 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                    ${vehicle.mileage}
+                  </div>
+                  `
+                      : ""
+                  }
+                </div>
+              </div>
+            `;
+            
+            vehiclesGrid.appendChild(vehicleCard);
+          });
+          
+          // Mostrar mensaje si no hay vehículos
+          if (displayVehicles.length === 0) {
+            vehiclesGrid.innerHTML = `
+              <div class="empty-state">
+                <p>No se encontraron vehículos para esta categoría.</p>
+              </div>
+            `;
+          }
+        };
+      });
+    </script>
   </body>
 </html>
