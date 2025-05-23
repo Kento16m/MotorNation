@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Vehículos | Motor Nation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .catalogo-filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+      background: var(--color-white);
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      padding: 24px 20px;
+      align-items: flex-end;
+    }
+    .catalogo-filtros label {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+      display: block;
+      color: var(--color-gray-dark);
+    }
+    .catalogo-filtros select,
+    .catalogo-filtros input[type="text"],
+    .catalogo-filtros input[type="number"] {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid var(--color-gray);
+      font-family: var(--font-family);
+      font-size: 15px;
+      min-width: 120px;
+      background: var(--color-gray-light);
+      margin-bottom: 0;
+    }
+    .catalogo-filtros .filtro-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+    }
+    .catalogo-filtros .filtro-buscar {
+      flex: 1 1 200px;
+      min-width: 200px;
+    }
+    .catalogo-filtros .btn {
+      margin-top: 0;
+      height: 40px;
+    }
+    .catalogo-detalle-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .catalogo-detalle-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .catalogo-detalle-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      max-width: 700px;
+      width: 95vw;
+      box-shadow: var(--box-shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      animation: fadeIn .5s;
+    }
+    .catalogo-detalle-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      background: var(--color-gray-light);
+    }
+    .catalogo-detalle-content {
+      padding: 28px 24px 20px 24px;
+    }
+    .catalogo-detalle-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--color-red);
+    }
+    .catalogo-detalle-precio {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--color-red-dark);
+      margin-bottom: 16px;
+    }
+    .catalogo-detalle-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 32px;
+      margin-bottom: 18px;
+    }
+    .catalogo-detalle-list span {
+      font-size: 15px;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .catalogo-detalle-close {
+      position: absolute;
+      top: 18px; right: 18px;
+      background: var(--color-red);
+      color: var(--color-white);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+    .catalogo-detalle-close:hover {
+      background: var(--color-red-dark);
+    }
+    @media (max-width: 600px) {
+      .catalogo-detalle-card { padding: 0; }
+      .catalogo-detalle-content { padding: 18px 10px 10px 10px; }
+      .catalogo-detalle-img { height: 180px; }
+      .catalogo-filtros { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">MOTORNATION</a>
+      <button id="menu-toggle" class="menu-toggle"><span>☰</span></button>
+      <nav id="main-nav" class="main-nav">
+        <ul>
+          <li><a href="index.html#home" class="nav-link">Inicio</a></li>
+          <li><a href="catalogo.html" class="nav-link active">Catálogo</a></li>
+          <li><a href="index.html#about" class="nav-link">Sobre Nosotros</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section bg-light" style="padding-top:110px;">
+    <div class="container">
+      <h2 class="section-title">Catálogo de Vehículos</h2>
+      <p class="section-subtitle">Filtra y encuentra el vehículo ideal para vos.</p>
+      <form class="catalogo-filtros" id="catalogo-filtros">
+        <div class="filtro-group">
+          <label for="filtro-tipo">Tipo</label>
+          <select id="filtro-tipo">
+            <option value="">Todos</option>
+            <option value="Auto">Auto</option>
+            <option value="Moto">Moto</option>
+            <option value="Lancha">Lancha</option>
+            <option value="SUV">SUV</option>
+            <option value="Camioneta">Camioneta</option>
+            <option value="Sedan">Sedan</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="filtro-marca">Marca</label>
+          <select id="filtro-marca">
+            <option value="">Todas</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="filtro-modelo">Modelo</label>
+          <select id="filtro-modelo">
+            <option value="">Todos</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="filtro-estado">Estado</label>
+          <select id="filtro-estado">
+            <option value="">Todos</option>
+            <option value="nuevo">Nuevo</option>
+            <option value="usado">Usado</option>
+          </select>
+        </div>
+        <div class="filtro-group">
+          <label for="filtro-precio-min">Precio mín.</label>
+          <input type="number" id="filtro-precio-min" min="0" placeholder="₲ mín.">
+        </div>
+        <div class="filtro-group">
+          <label for="filtro-precio-max">Precio máx.</label>
+          <input type="number" id="filtro-precio-max" min="0" placeholder="₲ máx.">
+        </div>
+        <div class="filtro-group filtro-buscar">
+          <label for="filtro-buscar">Buscar</label>
+          <input type="text" id="filtro-buscar" placeholder="Marca, modelo, año...">
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+      </form>
+      <div class="vehicles-grid" id="catalogo-grid"></div>
+      <div id="catalogo-empty" class="empty-state" style="display:none;">No se encontraron vehículos.</div>
+    </div>
+  </section>
+
+  <!-- Modal Detalle -->
+  <div class="catalogo-detalle-modal" id="detalle-modal">
+    <div class="catalogo-detalle-card" id="detalle-card">
+      <button class="catalogo-detalle-close" id="detalle-close" title="Cerrar">&times;</button>
+      <img src="" alt="" class="catalogo-detalle-img" id="detalle-img">
+      <div class="catalogo-detalle-content">
+        <div class="catalogo-detalle-title" id="detalle-title"></div>
+        <div class="catalogo-detalle-precio" id="detalle-precio"></div>
+        <div class="catalogo-detalle-list" id="detalle-list"></div>
+        <a href="#" target="_blank" class="btn btn-whatsapp" id="detalle-whatsapp" style="background:var(--color-whatsapp);color:#fff;">
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <h3>MOTOR NATION</h3>
+          <p>La mejor experiencia en compra de vehículos nuevos y usados en Paraguay. Calidad, confianza y el mejor servicio.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="index.html#home">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="index.html#about">Nosotros</a></li>
+            <li><a href="index.html#contact">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="#">Vehículos usados</a></li>
+            <li><a href="#">Financiamiento</a></li>
+            <li><a href="#">Trámites</a></li>
+            <li><a href="#">Seguros</a></li>
+            <li><a href="#">Servicio técnico</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Contacto</h3>
+          <ul>
+            <li><a href="#">+595 21 123 4567</a></li>
+            <li><a href="#">info@motornation.com.py</a></li>
+            <li><a href="#">Av. Mariscal López 1234, Asunción, Paraguay</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Motor Nation. Todos los derechos reservados.</p>
+        <div class="creditos">
+          Desarrollado por <a href="https://kento16m.github.io/MiraiSoft/" target="_blank">MiraiSoft</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // =================== VEHICLES DATA ===================
+    const vehicles = [
+      {
+        id: "1",
+        type: "SUV",
+        marca: "Toyota",
+        modelo: "RAV4",
+        name: "Toyota RAV4 2023",
+        price: "₲ 350.000.000",
+        priceNum: 350000000,
+        year: "2023",
+        transmission: "Automático",
+        image: "https://th.bing.com/th/id/OIP.NY04i2ZOEvOng_KjoPHUkQHaEK?rs=1&pid=ImgDetMain",
+        isNew: true,
+      },
+      {
+        id: "2",
+        type: "Sedan",
+        marca: "Nissan",
+        modelo: "Sentra",
+        name: "Nissan Sentra",
+        price: "₲ 180.000.000",
+        priceNum: 180000000,
+        year: "2023",
+        transmission: "Automático",
+        image: "https://th.bing.com/th/id/OIP.nQaeDt7umlsj_-lArfJxPwHaEK?rs=1&pid=ImgDetMain",
+        isNew: true,
+      },
+      {
+        id: "3",
+        type: "Moto",
+        marca: "Honda",
+        modelo: "CBR 650R",
+        name: "Honda CBR 650R",
+        price: "₲ 120.000.000",
+        priceNum: 120000000,
+        year: "2023",
+        transmission: "Manual",
+        image: "https://lemotard.eu/wp-content/uploads/2021/02/Honda-CBR-650R.jpg",
+        isNew: true,
+      },
+      {
+        id: "4",
+        type: "Camioneta",
+        marca: "Ford",
+        modelo: "Ranger Limited",
+        name: "Ford Ranger Limited",
+        price: "₲ 280.000.000",
+        priceNum: 280000000,
+        year: "2022",
+        mileage: "15.000 km",
+        transmission: "Automático",
+        image: "https://th.bing.com/th/id/OIP.OiLlOgipgKfwvPSqt1chiAHaE8?rs=1&pid=ImgDetMain",
+        isNew: false,
+      },
+      {
+        id: "5",
+        type: "Moto",
+        marca: "Yamaha",
+        modelo: "MT-07",
+        name: "Yamaha MT-07",
+        price: "₲ 85.000.000",
+        priceNum: 85000000,
+        year: "2022",
+        mileage: "8.500 km",
+        transmission: "Manual",
+        image: "https://images.unsplash.com/photo-1580310614729-ccd69652491d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+        isNew: false,
+      },
+      {
+        id: "6",
+        type: "Sedan",
+        marca: "Hyundai",
+        modelo: "Elantra",
+        name: "Hyundai Elantra",
+        price: "₲ 145.000.000",
+        priceNum: 145000000,
+        year: "2022",
+        mileage: "12.000 km",
+        transmission: "Automático",
+        image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80",
+        isNew: false,
+      },
+      {
+        id: "7",
+        type: "SUV",
+        marca: "Kia",
+        modelo: "Sportage",
+        name: "Kia Sportage 2023",
+        price: "₲ 310.000.000",
+        priceNum: 310000000,
+        year: "2023",
+        transmission: "Automático",
+        image: "https://www.carpixel.net/w/869b70cf5ba2669aded681627d3e4390/kia-sportage-hev-wallpaper-hd-107452.jpg",
+        isNew: true,
+      },
+      {
+        id: "8",
+        type: "Sedan",
+        marca: "Chevrolet",
+        modelo: "Onix Plus",
+        name: "Chevrolet Onix Plus",
+        price: "₲ 135.000.000",
+        priceNum: 135000000,
+        year: "2022",
+        mileage: "10.000 km",
+        transmission: "Automático",
+        image: "https://cdn.motor1.com/images/mgl/Rv3g3/s1/chevrolet-presento-los-nuevos-onix-rs-y-onix-plus-midnight.jpg",
+        isNew: false,
+      },
+      {
+        id: "9",
+        type: "Camioneta",
+        marca: "Chevrolet",
+        modelo: "S10 High Country",
+        name: "Chevrolet S10 High Country",
+        price: "₲ 270.000.000",
+        priceNum: 270000000,
+        year: "2023",
+        transmission: "Automático",
+        image: "https://cuyomotor.com.ar/wp-content/uploads/2023/06/Chevrolet-s10-Midnight-002.jpg",
+        isNew: true,
+      },
+      {
+        id: "10",
+        type: "Moto",
+        marca: "Kawasaki",
+        modelo: "Ninja 400",
+        name: "Kawasaki Ninja 400",
+        price: "₲ 90.000.000",
+        priceNum: 90000000,
+        year: "2023",
+        transmission: "Manual",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhQ8O6HN2dK4dL8JsK9RraJ_w9RtJz68yfXA&s",
+        isNew: true,
+      },
+      {
+        id: "11",
+        type: "SUV",
+        marca: "Mazda",
+        modelo: "CX-5",
+        name: "Mazda CX-5",
+        price: "₲ 330.000.000",
+        priceNum: 330000000,
+        year: "2023",
+        transmission: "Automático",
+        image: "https://autohusetvestergaard.imgix.net/7531/2022_mazda_cx-5_launch_roed_front_vej_1920x1080.jpg?q=80",
+        isNew: true,
+      },
+      {
+        id: "12",
+        type: "Sedan",
+        marca: "Volkswagen",
+        modelo: "Virtus",
+        name: "Volkswagen Virtus",
+        price: "₲ 140.000.000",
+        priceNum: 140000000,
+        year: "2022",
+        mileage: "13.500 km",
+        transmission: "Automático",
+        image: "https://cdn.motor1.com/images/mgl/KbJyll/s1/2022-vw-virtus.jpg",
+        isNew: false,
+      },
+      // Ejemplo de lancha
+      {
+        id: "13",
+        type: "Lancha",
+        marca: "Yamaha",
+        modelo: "242X",
+        name: "Yamaha 242X",
+        price: "₲ 500.000.000",
+        priceNum: 500000000,
+        year: "2021",
+        transmission: "Automático",
+        image: "https://www.yamahaboats.com/content/dam/yamahaboats/images/2021/242x/242x-hero.jpg",
+        isNew: true,
+      }
+    ];
+
+    // =================== FILTROS DINÁMICOS ===================
+    function getUnique(arr, key) {
+      return [...new Set(arr.map(v => v[key]).filter(Boolean))];
+    }
+    function fillSelect(select, values, label) {
+      select.innerHTML = `<option value="">${label}</option>`;
+      values.forEach(val => {
+        select.innerHTML += `<option value="${val}">${val}</option>`;
+      });
+    }
+    function updateMarcaModeloOptions() {
+      const tipo = filtroTipo.value;
+      let filtered = vehicles;
+      if (tipo) filtered = filtered.filter(v => v.type === tipo);
+      fillSelect(filtroMarca, getUnique(filtered, "marca"), "Todas");
+      fillSelect(filtroModelo, getUnique(filtered, "modelo"), "Todos");
+    }
+
+    // =================== RENDER VEHICLES ===================
+    function renderCatalogo(vehiculos) {
+      catalogoGrid.innerHTML = "";
+      if (!vehiculos.length) {
+        catalogoGrid.style.display = "none";
+        catalogoEmpty.style.display = "";
+        return;
+      }
+      catalogoGrid.style.display = "";
+      catalogoEmpty.style.display = "none";
+      vehiculos.forEach(vehicle => {
+        const card = document.createElement("div");
+        card.className = "vehicle-card";
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", `Ver detalles de ${vehicle.name}`);
+        card.innerHTML = `
+          <div class="vehicle-image">
+            <img src="${vehicle.image}" alt="${vehicle.name}">
+            ${vehicle.isNew ? `<span class="vehicle-badge">Nuevo</span>` : `<span class="vehicle-badge" style="background:var(--color-gray-dark)">Usado</span>`}
+          </div>
+          <div class="vehicle-content">
+            <h3 class="vehicle-title">${vehicle.name}</h3>
+            <div class="vehicle-price">${vehicle.price}</div>
+            <div class="vehicle-details">
+              <div class="vehicle-detail">
+                <svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-16a1 1 0 0 0-1 1v5a1 1 0 0 0 .4.8l3 2a1 1 0 0 0 1.2-1.6L13 11.4V7a1 1 0 0 0-1-1z"/></svg>
+                ${vehicle.year}
+              </div>
+              <div class="vehicle-detail">
+                <svg viewBox="0 0 24 24"><path d="M16 6l3 4h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1a3 3 0 0 1-6 0H8a3 3 0 0 1-6 0H1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2l3-4h10zm3 5.5L17 9H7l-2 2.5H16z"/></svg>
+                ${vehicle.transmission}
+              </div>
+              ${vehicle.mileage ? `
+              <div class="vehicle-detail">
+                <svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.54-4.54a5 5 0 0 1 7.08 0 1 1 0 0 1-1.42 1.42 3 3 0 0 0-4.24 0 1 1 0 0 1-1.42-1.42zM9 10a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+                ${vehicle.mileage}
+              </div>` : ""}
+            </div>
+            <a href="#" class="vehicle-link" data-id="${vehicle.id}">
+              Ver detalles
+              <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+            </a>
+          </div>
+        `;
+        card.querySelector(".vehicle-link").addEventListener("click", e => {
+          e.preventDefault();
+          showDetalle(vehicle.id);
+        });
+        card.addEventListener("click", e => {
+          if (!e.target.classList.contains("vehicle-link")) showDetalle(vehicle.id);
+        });
+        catalogoGrid.appendChild(card);
+      });
+    }
+
+    // =================== FILTRADO ===================
+    function filtrarVehiculos() {
+      let filtrados = vehicles.slice();
+      const tipo = filtroTipo.value;
+      const marca = filtroMarca.value;
+      const modelo = filtroModelo.value;
+      const estado = filtroEstado.value;
+      const precioMin = parseInt(filtroPrecioMin.value, 10) || 0;
+      const precioMax = parseInt(filtroPrecioMax.value, 10) || Infinity;
+      const buscar = filtroBuscar.value.trim().toLowerCase();
+
+      if (tipo) filtrados = filtrados.filter(v => v.type === tipo);
+      if (marca) filtrados = filtrados.filter(v => v.marca === marca);
+      if (modelo) filtrados = filtrados.filter(v => v.modelo === modelo);
+      if (estado) filtrados = filtrados.filter(v => estado === "nuevo" ? v.isNew : !v.isNew);
+      filtrados = filtrados.filter(v => v.priceNum >= precioMin && v.priceNum <= precioMax);
+      if (buscar) {
+        filtrados = filtrados.filter(v =>
+          (v.name + " " + v.marca + " " + v.modelo + " " + v.year).toLowerCase().includes(buscar)
+        );
+      }
+      renderCatalogo(filtrados);
+    }
+
+    // =================== DETALLE VEHÍCULO ===================
+    function showDetalle(id) {
+      const v = vehicles.find(v => v.id === id);
+      if (!v) return;
+      detalleImg.src = v.image;
+      detalleImg.alt = v.name;
+      detalleTitle.textContent = v.name;
+      detallePrecio.textContent = v.price;
+      detalleList.innerHTML = `
+        <span><b>Marca:</b> ${v.marca}</span>
+        <span><b>Modelo:</b> ${v.modelo}</span>
+        <span><b>Tipo:</b> ${v.type}</span>
+        <span><b>Año:</b> ${v.year}</span>
+        <span><b>Transmisión:</b> ${v.transmission}</span>
+        <span><b>Estado:</b> ${v.isNew ? "Nuevo" : "Usado"}</span>
+        ${v.mileage ? `<span><b>Kilometraje:</b> ${v.mileage}</span>` : ""}
+      `;
+      detalleWhatsapp.href = `https://wa.me/595XXXXXXXXX?text=Hola%20Motor%20Nation,%20me%20interesa%20el%20vehículo%20${encodeURIComponent(v.name)}`;
+      detalleModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+    function closeDetalle() {
+      detalleModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    // =================== DOM ELEMENTS ===================
+    const catalogoGrid = document.getElementById("catalogo-grid");
+    const catalogoEmpty = document.getElementById("catalogo-empty");
+    const filtroTipo = document.getElementById("filtro-tipo");
+    const filtroMarca = document.getElementById("filtro-marca");
+    const filtroModelo = document.getElementById("filtro-modelo");
+    const filtroEstado = document.getElementById("filtro-estado");
+    const filtroPrecioMin = document.getElementById("filtro-precio-min");
+    const filtroPrecioMax = document.getElementById("filtro-precio-max");
+    const filtroBuscar = document.getElementById("filtro-buscar");
+    const filtrosForm = document.getElementById("catalogo-filtros");
+    const detalleModal = document.getElementById("detalle-modal");
+    const detalleImg = document.getElementById("detalle-img");
+    const detalleTitle = document.getElementById("detalle-title");
+    const detallePrecio = document.getElementById("detalle-precio");
+    const detalleList = document.getElementById("detalle-list");
+    const detalleClose = document.getElementById("detalle-close");
+    const detalleWhatsapp = document.getElementById("detalle-whatsapp");
+
+    // =================== INIT ===================
+    fillSelect(filtroMarca, getUnique(vehicles, "marca"), "Todas");
+    fillSelect(filtroModelo, getUnique(vehicles, "modelo"), "Todos");
+    renderCatalogo(vehicles);
+
+    filtroTipo.addEventListener("change", () => {
+      updateMarcaModeloOptions();
+      filtrarVehiculos();
+    });
+    filtroMarca.addEventListener("change", () => {
+      fillSelect(filtroModelo, getUnique(vehicles.filter(v => !filtroMarca.value || v.marca === filtroMarca.value), "modelo"), "Todos");
+      filtrarVehiculos();
+    });
+    filtroModelo.addEventListener("change", filtrarVehiculos);
+    filtroEstado.addEventListener("change", filtrarVehiculos);
+    filtroPrecioMin.addEventListener("input", filtrarVehiculos);
+    filtroPrecioMax.addEventListener("input", filtrarVehiculos);
+    filtroBuscar.addEventListener("input", filtrarVehiculos);
+    filtrosForm.addEventListener("submit", e => { e.preventDefault(); filtrarVehiculos(); });
+
+    detalleClose.addEventListener("click", closeDetalle);
+    detalleModal.addEventListener("click", e => { if (e.target === detalleModal) closeDetalle(); });
+    window.addEventListener("keydown", e => { if (e.key === "Escape") closeDetalle(); });
+
+    // =================== HEADER SCROLL & MENU ===================
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    });
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainNav = document.getElementById("main-nav");
+    menuToggle.addEventListener("click", () => mainNav.classList.toggle("active"));
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => mainNav.classList.remove("active"));
+    });
+
+    // =================== YEAR FOOTER ===================
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
