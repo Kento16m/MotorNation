@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre Nosotros | Motor Nation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Modern Glassmorphism & Animations */
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f1f1 100%);
+    }
+    .about-video-section {
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 70px;
+      flex-wrap: wrap;
+    }
+    .about-video-container {
+      flex: 1 1 350px;
+      min-width: 280px;
+      max-width: 600px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(234,56,76,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid rgba(234,56,76,0.08);
+      animation: fadeIn 1.2s;
+    }
+    .about-video-container iframe,
+    .about-video-container video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      background: #000;
+    }
+    .about-video-text {
+      flex: 1 1 320px;
+      min-width: 260px;
+      padding: 24px 0;
+      animation: slideRight 1.2s;
+    }
+    .about-video-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-red);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(234,56,76,0.08);
+    }
+    .about-video-text p {
+      font-size: 1.13rem;
+      color: #444;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .about-history-section {
+      margin-bottom: 70px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(234,56,76,0.07);
+      padding: 40px 24px 32px 24px;
+      animation: fadeIn 1.2s;
+    }
+    .about-history-section h2 {
+      color: var(--color-red);
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+    .about-history-section p {
+      font-size: 1.08rem;
+      color: #333;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .awards-section {
+      margin-bottom: 70px;
+    }
+    .awards-section h2 {
+      color: var(--color-red);
+      font-weight: 800;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 36px;
+      margin-top: 36px;
+    }
+    .award-card {
+      background: rgba(255,255,255,0.85);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(234,56,76,0.08);
+      padding: 36px 20px 28px 20px;
+      text-align: center;
+      transition: transform .22s, box-shadow .22s;
+      position: relative;
+      overflow: hidden;
+      border: 1.5px solid rgba(234,56,76,0.07);
+      animation: fadeIn 1.2s;
+    }
+    .award-card:hover {
+      transform: translateY(-10px) scale(1.04) rotate(-1deg);
+      box-shadow: 0 16px 40px rgba(234,56,76,0.15), 0 2px 12px rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.97);
+    }
+    .award-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 22px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffe082 60%, #fffde7 100%);
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(234,56,76,0.10);
+      border: 2.5px solid #fffde7;
+      position: relative;
+      animation: pulse-glow 2.5s infinite alternate;
+    }
+    .award-icon svg {
+      width: 38px;
+      height: 38px;
+      fill: #fbc02d;
+      stroke: #fbc02d;
+      filter: drop-shadow(0 2px 6px #ffe08299);
+    }
+    .award-title {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--color-red);
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
+    }
+    .award-desc {
+      font-size: 1rem;
+      color: #555;
+      opacity: 0.92;
+    }
+    @keyframes pulse-glow {
+      0% { box-shadow: 0 2px 12px #ffe08255; }
+      100% { box-shadow: 0 6px 24px #ffe082bb; }
+    }
+    .about-cta-section {
+      background: linear-gradient(100deg, var(--color-red) 0%, var(--color-red-dark) 100%);
+      color: var(--color-white);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(234,56,76,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
+      padding: 56px 30px 48px 30px;
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1.2s;
+    }
+    .about-cta-section::before {
+      content: "";
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, #fff3 0%, #fff0 80%);
+      z-index: 0;
+      filter: blur(2px);
+      pointer-events: none;
+    }
+    .about-cta-section h2 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 12px #ea384c44;
+      z-index: 1;
+      position: relative;
+    }
+    .about-cta-section p {
+      font-size: 1.18rem;
+      margin-bottom: 32px;
+      color: #fff;
+      opacity: 0.98;
+      z-index: 1;
+      position: relative;
+    }
+    .about-cta-section .btn {
+      font-size: 1.18rem;
+      padding: 18px 48px;
+      font-weight: 800;
+      border-radius: 30px;
+      background: #fff;
+      color: var(--color-red);
+      border: none;
+      transition: background .2s, color .2s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+      z-index: 1;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    .about-cta-section .btn:hover {
+      background: var(--color-gray-light);
+      color: var(--color-red-dark);
+      box-shadow: 0 8px 32px rgba(234,56,76,0.13);
+      transform: scale(1.04);
+    }
+    /* Animations for fade-in and slide */
+    .fade-in { opacity: 0; animation: fadeIn 1.2s forwards; }
+    .slide-left { opacity: 0; animation: slideLeft 1.2s forwards; }
+    .slide-right { opacity: 0; animation: slideRight 1.2s forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
+    .slide-left { transform: translateX(-50px);}
+    .slide-right { transform: translateX(50px);}
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-video-section {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .about-video-container,
+      .about-video-text {
+        max-width: 100%;
+      }
+      .about-history-section,
+      .awards-section {
+        padding: 24px 6px;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-cta-section {
+        padding: 32px 10px 28px 10px;
+      }
+      .awards-grid {
+        gap: 18px;
+      }
+      .award-card {
+        padding: 18px 10px 14px 10px;
+      }
+      .about-video-container {
+        min-width: 0;
+        aspect-ratio: 16/9;
+      }
+      .about-video-text {
+        padding: 0;
+      }
+    }
+    /* Sutil hover para links */
+    .about-history-section a, .awards-section a, .about-cta-section a {
+      color: var(--color-red);
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .about-history-section a:hover, .awards-section a:hover, .about-cta-section a:hover {
+      color: var(--color-red-dark);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo">MOTORNATION</a>
+      <button id="menu-toggle" class="menu-toggle"><span>☰</span></button>
+      <nav id="main-nav" class="main-nav">
+        <ul>
+          <li><a href="index.html#home" class="nav-link">Inicio</a></li>
+          <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+          <li><a href="nosotros.html" class="nav-link active">Sobre Nosotros</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top:110px;">
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title" style="font-weight:900;letter-spacing:1px;color:var(--color-red);">Sobre Nosotros</h1>
+        <p class="section-subtitle" style="font-size:1.18rem;">Conocé la historia, valores y logros de Motor Nation.</p>
+
+        <!-- Video de presentación -->
+        <div class="about-video-section">
+          <div class="about-video-container fade-in">
+            <iframe src="https://www.youtube.com/embed/8Qn_spdM5Zg?rel=0&autoplay=0&controls=1&showinfo=0" title="Presentación Motor Nation" allowfullscreen></iframe>
+          </div>
+          <div class="about-video-text slide-right">
+            <h2>Pasión por los vehículos, pasión por vos</h2>
+            <p>En <b>Motor Nation</b>, cada cliente es parte de nuestra familia. Nuestra pasión por los autos y motos nos impulsa a ofrecerte la mejor experiencia, desde el primer contacto hasta mucho después de tu compra.</p>
+            <p><span style="color:var(--color-red);font-weight:700;">¡Dale play al video</span> y conocé por qué somos la mejor opción en Paraguay!</p>
+          </div>
+        </div>
+
+        <!-- Historia -->
+        <div class="about-history-section fade-in">
+          <h2 class="section-title" style="font-size:28px;">Nuestra Historia</h2>
+          <p style="max-width:800px;margin:0 auto 18px auto;text-align:center;">
+            Fundada en <b>2008</b>, Motor Nation nació con el sueño de revolucionar el mercado automotriz paraguayo. Comenzamos como un pequeño local familiar y, gracias a la confianza de miles de clientes, hoy somos líderes en venta de vehículos nuevos y usados.
+          </p>
+          <p style="max-width:800px;margin:0 auto 0 auto;text-align:center;">
+            Nuestra filosofía siempre fue clara: <b>calidad, transparencia y atención personalizada</b>. A lo largo de los años, hemos incorporado tecnología, ampliado nuestro catálogo y formado alianzas con las mejores marcas, sin perder nunca el trato humano que nos caracteriza.
+          </p>
+        </div>
+
+        <!-- Premios -->
+        <div class="awards-section fade-in">
+          <h2 class="section-title" style="font-size:28px;">Premios y Reconocimientos</h2>
+          <div class="awards-grid">
+            <div class="award-card fade-in">
+              <div class="award-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 21 12 17.27 7.82 21 9 12.91l-5-3.64 5.91-.91z"/></svg>
+              </div>
+              <div class="award-title">Mejor Concesionaria 2023</div>
+              <div class="award-desc">Premio nacional a la excelencia en atención y calidad.</div>
+            </div>
+            <div class="award-card slide-left">
+              <div class="award-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div class="award-title">Servicio Más Rápido</div>
+              <div class="award-desc">Reconocimiento por procesos ágiles y entrega inmediata.</div>
+            </div>
+            <div class="award-card slide-right">
+              <div class="award-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="award-title">Confianza del Cliente</div>
+              <div class="award-desc">Más de 10.000 clientes satisfechos en todo el país.</div>
+            </div>
+            <div class="award-card fade-in">
+              <div class="award-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <div class="award-title">Innovación Digital</div>
+              <div class="award-desc">Pioneros en catálogo online y atención virtual en Paraguay.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Llamado a la acción -->
+        <div class="about-cta-section fade-in">
+          <h2>¿Listo para tu próxima aventura?</h2>
+          <p>Unite a la familia Motor Nation y descubrí por qué somos la elección #1 en vehículos. <b>¡Te esperamos con la mejor atención y los mejores precios!</b></p>
+          <a href="catalogo.html" class="btn">Ver Catálogo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <h3>MOTOR NATION</h3>
+          <p>La mejor experiencia en compra de vehículos nuevos y usados en Paraguay. Calidad, confianza y el mejor servicio.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="index.html#home">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="about.html">Nosotros</a></li>
+            <li><a href="index.html#contact">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="#">Vehículos usados</a></li>
+            <li><a href="#">Financiamiento</a></li>
+            <li><a href="#">Trámites</a></li>
+            <li><a href="#">Seguros</a></li>
+            <li><a href="#">Servicio técnico</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Contacto</h3>
+          <ul>
+            <li><a href="#">+595 21 123 4567</a></li>
+            <li><a href="#">info@motornation.com.py</a></li>
+            <li><a href="#">Av. Mariscal López 1234, Asunción, Paraguay</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Motor Nation. Todos los derechos reservados.</p>
+        <div class="creditos">
+          Desarrollado por <a href="https://kento16m.github.io/MiraiSoft/" target="_blank">MiraiSoft</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Header scroll efecto
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    });
+    // Mobile menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainNav = document.getElementById("main-nav");
+    menuToggle.addEventListener("click", () => mainNav.classList.toggle("active"));
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => mainNav.classList.remove("active"));
+    });
+    // Año en footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    // Animación de fade-in al hacer scroll
+    function revealOnScroll() {
+      document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) el.style.opacity = 1;
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+  </script>
+</body>
+</html>
