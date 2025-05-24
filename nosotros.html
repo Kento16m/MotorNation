@@ -10,6 +10,17 @@
     body {
       background: linear-gradient(135deg, #f8fafc 0%, #f1f1f1 100%);
     }
+    .main-nav .nav-link {
+      color: #111 !important;
+      transition: color .2s;
+    }
+    .header.scrolled .main-nav .nav-link {
+      color: #fff !important;
+    }
+    .header.scrolled .main-nav .nav-link:hover,
+    .header.scrolled .main-nav .nav-link.active {
+      color: var(--color-red) !important;
+    }
     .about-video-section {
       display: flex;
       flex-direction: row;
@@ -274,7 +285,7 @@
         <ul>
           <li><a href="index.html#home" class="nav-link">Inicio</a></li>
           <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
-          <li><a href="nosotros.html" class="nav-link active">Sobre Nosotros</a></li>
+          <li><a href="nosotros.html" class="nav-link active">Sobre Nosotros active</a></li>
           <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
         </ul>
       </nav>

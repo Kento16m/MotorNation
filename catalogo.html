@@ -6,6 +6,21 @@
   <title>Catálogo de Vehículos | Motor Nation</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    .main-nav .nav-link {
+      color: #111 !important;
+      transition: color .2s;
+    }
+    .header.scrolled .main-nav .nav-link {
+      color: #fff !important;
+    }
+    .main-nav .nav-link:hover,
+    .main-nav .nav-link.active {
+      color: var(--color-red) !important;
+    }
+    .header.scrolled .main-nav .nav-link:hover,
+    .header.scrolled .main-nav .nav-link.active {
+      color: var(--color-red) !important;
+    }
     .catalogo-filtros {
       display: flex;
       flex-wrap: wrap;
@@ -145,7 +160,7 @@
       <nav id="main-nav" class="main-nav">
         <ul>
           <li><a href="index.html#home" class="nav-link">Inicio</a></li>
-            <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+            <li><a href="catalogo.html" class="nav-link active">Catálogo</a></li>
             <li><a href="nosotros.html" class="nav-link">Sobre Nosotros</a></li>
             <li><a href="#" class="nav-link">Contacto</a></li>
         </ul>
