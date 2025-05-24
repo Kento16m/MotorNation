@@ -1,439 +1,805 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sobre Nosotros | Motor Nation</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Modern Glassmorphism & Animations */
-    body {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f1f1 100%);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nosotros - MOTOR NATION | Nuestra Historia y Pasión por los Vehículos</title>
+    <meta name="description" content="Conoce la historia de Motor Nation, líder en venta de vehículos nuevos y usados en Paraguay. Más de 15 años de experiencia, calidad garantizada y el mejor servicio al cliente.">
+    <meta name="keywords" content="Motor Nation historia, venta vehículos Paraguay, autos usados, motos nuevas, concesionario Paraguay, sobre nosotros">
+    <meta name="author" content="Motor Nation">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sobre Nosotros - MOTOR NATION | Nuestra Historia">
+    <meta property="og:description" content="Descubre la historia de Motor Nation, tu concesionario de confianza en Paraguay con más de 15 años de experiencia.">
+    <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO.jpg-1Jb6uuJUL2WeGuU8vC9BFztC5FtlUO.jpeg">
+    <meta property="og:url" content="https://motornation.com.py/sobre-nosotros">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sobre Nosotros - MOTOR NATION">
+    <meta name="twitter:description" content="Conoce nuestra historia y pasión por los vehículos de calidad.">
+    <meta name="twitter:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO.jpg-1Jb6uuJUL2WeGuU8vC9BFztC5FtlUO.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="preloader.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Motor Nation",
+      "description": "Concesionario líder en venta de vehículos nuevos y usados en Paraguay",
+      "url": "https://motornation.com.py",
+      "logo": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO.jpg-1Jb6uuJUL2WeGuU8vC9BFztC5FtlUO.jpeg",
+      "foundingDate": "2008",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Mariscal López 1234",
+        "addressLocality": "Asunción",
+        "addressCountry": "Paraguay"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+595-21-123-4567",
+        "contactType": "customer service"
+      }
     }
-    .main-nav .nav-link {
-      color: #111 !important;
-      transition: color .2s;
-    }
-    .header.scrolled .main-nav .nav-link {
-      color: #fff !important;
-    }
-    .header.scrolled .main-nav .nav-link:hover,
-    .header.scrolled .main-nav .nav-link.active {
-      color: var(--color-red) !important;
-    }
-    .about-video-section {
-      display: flex;
-      flex-direction: row;
-      gap: 48px;
-      align-items: center;
-      margin-bottom: 70px;
-      flex-wrap: wrap;
-    }
-    .about-video-container {
-      flex: 1 1 350px;
-      min-width: 280px;
-      max-width: 600px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(234,56,76,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(8px);
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1.5px solid rgba(234,56,76,0.08);
-      animation: fadeIn 1.2s;
-    }
-    .about-video-container iframe,
-    .about-video-container video {
+    </script>
+    
+    <style>
+    /* Estilos críticos para el preloader */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      border: none;
-      display: block;
-      background: #000;
-    }
-    .about-video-text {
-      flex: 1 1 320px;
-      min-width: 260px;
-      padding: 24px 0;
-      animation: slideRight 1.2s;
-    }
-    .about-video-text h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--color-red);
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 2px 8px rgba(234,56,76,0.08);
-    }
-    .about-video-text p {
-      font-size: 1.13rem;
-      color: #444;
-      margin-bottom: 10px;
-      line-height: 1.7;
-    }
-    .about-history-section {
-      margin-bottom: 70px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(234,56,76,0.07);
-      padding: 40px 24px 32px 24px;
-      animation: fadeIn 1.2s;
-    }
-    .about-history-section h2 {
-      color: var(--color-red);
-      font-weight: 800;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
-    }
-    .about-history-section p {
-      font-size: 1.08rem;
-      color: #333;
-      margin-bottom: 10px;
-      line-height: 1.7;
-    }
-    .awards-section {
-      margin-bottom: 70px;
-    }
-    .awards-section h2 {
-      color: var(--color-red);
-      font-weight: 800;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
-    }
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 36px;
-      margin-top: 36px;
-    }
-    .award-card {
-      background: rgba(255,255,255,0.85);
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(234,56,76,0.08);
-      padding: 36px 20px 28px 20px;
-      text-align: center;
-      transition: transform .22s, box-shadow .22s;
-      position: relative;
-      overflow: hidden;
-      border: 1.5px solid rgba(234,56,76,0.07);
-      animation: fadeIn 1.2s;
-    }
-    .award-card:hover {
-      transform: translateY(-10px) scale(1.04) rotate(-1deg);
-      box-shadow: 0 16px 40px rgba(234,56,76,0.15), 0 2px 12px rgba(0,0,0,0.10);
-      background: rgba(255,255,255,0.97);
-    }
-    .award-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 22px auto;
+      background-color: #ffffff;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #ffe082 60%, #fffde7 100%);
-      border-radius: 50%;
-      box-shadow: 0 2px 12px rgba(234,56,76,0.10);
-      border: 2.5px solid #fffde7;
-      position: relative;
-      animation: pulse-glow 2.5s infinite alternate;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
-    .award-icon svg {
-      width: 38px;
-      height: 38px;
-      fill: #fbc02d;
-      stroke: #fbc02d;
-      filter: drop-shadow(0 2px 6px #ffe08299);
-    }
-    .award-title {
-      font-size: 1.18rem;
-      font-weight: 800;
-      color: var(--color-red);
-      margin-bottom: 8px;
-      letter-spacing: 0.2px;
-    }
-    .award-desc {
-      font-size: 1rem;
-      color: #555;
-      opacity: 0.92;
-    }
-    @keyframes pulse-glow {
-      0% { box-shadow: 0 2px 12px #ffe08255; }
-      100% { box-shadow: 0 6px 24px #ffe082bb; }
-    }
-    .about-cta-section {
-      background: linear-gradient(100deg, var(--color-red) 0%, var(--color-red-dark) 100%);
-      color: var(--color-white);
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(234,56,76,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
-      padding: 56px 30px 48px 30px;
-      text-align: center;
-      margin-bottom: 48px;
+    
+    /* Estilos específicos para la página sobre nosotros */
+    .about-hero {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+      padding: 120px 0 80px;
       position: relative;
       overflow: hidden;
-      animation: fadeIn 1.2s;
     }
-    .about-cta-section::before {
-      content: "";
+    
+    .about-hero::before {
+      content: '';
       position: absolute;
-      top: -80px; left: -80px;
-      width: 220px; height: 220px;
-      background: radial-gradient(circle, #fff3 0%, #fff0 80%);
-      z-index: 0;
-      filter: blur(2px);
-      pointer-events: none;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      animation: gridMove 20s linear infinite;
     }
-    .about-cta-section h2 {
-      font-size: 2.2rem;
-      font-weight: 900;
-      margin-bottom: 16px;
-      color: #fff;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 12px #ea384c44;
-      z-index: 1;
+    
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(10px, 10px); }
+    }
+    
+    .about-hero-content {
       position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
     }
-    .about-cta-section p {
-      font-size: 1.18rem;
-      margin-bottom: 32px;
-      color: #fff;
-      opacity: 0.98;
-      z-index: 1;
-      position: relative;
-    }
-    .about-cta-section .btn {
-      font-size: 1.18rem;
-      padding: 18px 48px;
+    
+    .about-hero h1 {
+      font-size: 48px;
       font-weight: 800;
-      border-radius: 30px;
-      background: #fff;
-      color: var(--color-red);
-      border: none;
-      transition: background .2s, color .2s, box-shadow .2s;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.10);
-      z-index: 1;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #ffffff, #ea384c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.2); }
+    }
+    
+    .about-hero p {
+      font-size: 20px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease 0.5s both;
+    }
+    
+    .story-section {
+      padding: 100px 0;
+      background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    }
+    
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    
+    .video-container {
       position: relative;
-      letter-spacing: 0.5px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: all 0.5s ease;
     }
-    .about-cta-section .btn:hover {
-      background: var(--color-gray-light);
-      color: var(--color-red-dark);
-      box-shadow: 0 8px 32px rgba(234,56,76,0.13);
-      transform: scale(1.04);
+    
+    .video-container:hover {
+      transform: perspective(1000px) rotateY(0deg) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
     }
-    /* Animations for fade-in and slide */
-    .fade-in { opacity: 0; animation: fadeIn 1.2s forwards; }
-    .slide-left { opacity: 0; animation: slideLeft 1.2s forwards; }
-    .slide-right { opacity: 0; animation: slideRight 1.2s forwards; }
-    @keyframes fadeIn { to { opacity: 1; } }
-    @keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
-    @keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
-    .slide-left { transform: translateX(-50px);}
-    .slide-right { transform: translateX(50px);}
-    /* Responsive */
-    @media (max-width: 992px) {
-      .about-video-section {
-        flex-direction: column;
-        gap: 32px;
+    
+    .video-container iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+    }
+    
+    .story-content {
+      padding: 40px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .story-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, #ea384c, #ff6b81);
+    }
+    
+    .story-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #1a1a1a;
+      position: relative;
+    }
+    
+    .story-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #ea384c, #ff6b81);
+      border-radius: 2px;
+    }
+    
+    .story-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, #ea384c 0%, #c52c3e 50%, #a02332 100%);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .cta-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+    
+    .cta-content h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: pulse 2s ease-in-out infinite alternate;
+    }
+    
+    .cta-content p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #ea384c;
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .cta-button:hover::before {
+      left: 100%;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      color: #c52c3e;
+    }
+    
+    .stats-section {
+      padding: 80px 0;
+      background: #1a1a1a;
+      color: white;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+    
+    .stat-item {
+      padding: 30px 20px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      border: 1px solid #333;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-10px);
+      border-color: #ea384c;
+      box-shadow: 0 20px 40px rgba(234, 56, 76, 0.2);
+    }
+    
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ea384c;
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .stat-label {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 36px;
       }
-      .about-video-container,
-      .about-video-text {
-        max-width: 100%;
+      
+      .about-hero p {
+        font-size: 18px;
       }
-      .about-history-section,
-      .awards-section {
-        padding: 24px 6px;
+      
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .video-container {
+        transform: none;
+      }
+      
+      .video-container iframe {
+        height: 250px;
+      }
+      
+      .story-content {
+        padding: 30px;
+      }
+      
+      .story-content h2 {
+        font-size: 28px;
+      }
+      
+      .cta-content h2 {
+        font-size: 32px;
+      }
+      
+      .cta-content p {
+        font-size: 18px;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .stat-number {
+        font-size: 36px;
       }
     }
-    @media (max-width: 600px) {
-      .about-cta-section {
-        padding: 32px 10px 28px 10px;
+    
+    @media (max-width: 480px) {
+      .about-hero h1 {
+        font-size: 28px;
       }
-      .awards-grid {
-        gap: 18px;
+      
+      .cta-content h2 {
+        font-size: 28px;
       }
-      .award-card {
-        padding: 18px 10px 14px 10px;
-      }
-      .about-video-container {
-        min-width: 0;
-        aspect-ratio: 16/9;
-      }
-      .about-video-text {
-        padding: 0;
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
       }
     }
-    /* Sutil hover para links */
-    .about-history-section a, .awards-section a, .about-cta-section a {
-      color: var(--color-red);
-      font-weight: 600;
-      transition: color .2s;
-    }
-    .about-history-section a:hover, .awards-section a:hover, .about-cta-section a:hover {
-      color: var(--color-red-dark);
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header class="header" id="header">
-    <div class="container">
-      <a href="index.html" class="logo">MOTORNATION</a>
-      <button id="menu-toggle" class="menu-toggle"><span>☰</span></button>
-      <nav id="main-nav" class="main-nav">
-        <ul>
-          <li><a href="index.html#home" class="nav-link">Inicio</a></li>
-          <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
-          <li><a href="nosotros.html" class="nav-link active">Sobre Nosotros active</a></li>
-          <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
-        </ul>
-      </nav>
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="preloader-content">
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO.jpg-1Jb6uuJUL2WeGuU8vC9BFztC5FtlUO.jpeg" alt="MOTOR NATION" class="preloader-logo">
+        <div class="preloader-spinner"></div>
+      </div>
     </div>
-  </header>
 
-  <main style="padding-top:110px;">
-    <section class="section">
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/595XXXXXXXXX?text=Hola%20Motor%20Nation,%20quiero%20conocer%20más%20sobre%20su%20historia%20y%20vehículos" class="whatsapp-float" target="_blank">
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <div class="whatsapp-tooltip">¡Contáctanos para conocer más sobre nuestra historia!</div>
+    </a>
+
+    <!-- Header -->
+    <header id="header" class="header">
       <div class="container">
-        <h1 class="section-title" style="font-weight:900;letter-spacing:1px;color:var(--color-red);">Sobre Nosotros</h1>
-        <p class="section-subtitle" style="font-size:1.18rem;">Conocé la historia, valores y logros de Motor Nation.</p>
+        <a href="index.html" class="logo">MOTORNATION</a>
+        
+        <button id="menu-toggle" class="menu-toggle">
+          <span>☰</span>
+        </button>
+        
+        <nav id="main-nav" class="main-nav">
+          <ul>
+            <li><a href="index.html" class="nav-link">Inicio</a></li>
+            <li><a href="catalogo.html" class="nav-link">Vehículos</a></li>
+            <li><a href="sobre-nosotros.html" class="nav-link active">Nosotros</a></li>
+            <li><a href="index.html#testimonials" class="nav-link">Testimonios</a></li>
+            <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        <!-- Video de presentación -->
-        <div class="about-video-section">
-          <div class="about-video-container fade-in">
-            <iframe src="https://www.youtube.com/embed/8Qn_spdM5Zg?rel=0&autoplay=0&controls=1&showinfo=0" title="Presentación Motor Nation" allowfullscreen></iframe>
-          </div>
-          <div class="about-video-text slide-right">
-            <h2>Pasión por los vehículos, pasión por vos</h2>
-            <p>En <b>Motor Nation</b>, cada cliente es parte de nuestra familia. Nuestra pasión por los autos y motos nos impulsa a ofrecerte la mejor experiencia, desde el primer contacto hasta mucho después de tu compra.</p>
-            <p><span style="color:var(--color-red);font-weight:700;">¡Dale play al video</span> y conocé por qué somos la mejor opción en Paraguay!</p>
-          </div>
-        </div>
-
-        <!-- Historia -->
-        <div class="about-history-section fade-in">
-          <h2 class="section-title" style="font-size:28px;">Nuestra Historia</h2>
-          <p style="max-width:800px;margin:0 auto 18px auto;text-align:center;">
-            Fundada en <b>2008</b>, Motor Nation nació con el sueño de revolucionar el mercado automotriz paraguayo. Comenzamos como un pequeño local familiar y, gracias a la confianza de miles de clientes, hoy somos líderes en venta de vehículos nuevos y usados.
-          </p>
-          <p style="max-width:800px;margin:0 auto 0 auto;text-align:center;">
-            Nuestra filosofía siempre fue clara: <b>calidad, transparencia y atención personalizada</b>. A lo largo de los años, hemos incorporado tecnología, ampliado nuestro catálogo y formado alianzas con las mejores marcas, sin perder nunca el trato humano que nos caracteriza.
-          </p>
-        </div>
-
-        <!-- Premios -->
-        <div class="awards-section fade-in">
-          <h2 class="section-title" style="font-size:28px;">Premios y Reconocimientos</h2>
-          <div class="awards-grid">
-            <div class="award-card fade-in">
-              <div class="award-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 21 12 17.27 7.82 21 9 12.91l-5-3.64 5.91-.91z"/></svg>
-              </div>
-              <div class="award-title">Mejor Concesionaria 2023</div>
-              <div class="award-desc">Premio nacional a la excelencia en atención y calidad.</div>
-            </div>
-            <div class="award-card slide-left">
-              <div class="award-icon">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              </div>
-              <div class="award-title">Servicio Más Rápido</div>
-              <div class="award-desc">Reconocimiento por procesos ágiles y entrega inmediata.</div>
-            </div>
-            <div class="award-card slide-right">
-              <div class="award-icon">
-                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/></svg>
-              </div>
-              <div class="award-title">Confianza del Cliente</div>
-              <div class="award-desc">Más de 10.000 clientes satisfechos en todo el país.</div>
-            </div>
-            <div class="award-card fade-in">
-              <div class="award-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              </div>
-              <div class="award-title">Innovación Digital</div>
-              <div class="award-desc">Pioneros en catálogo online y atención virtual en Paraguay.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Llamado a la acción -->
-        <div class="about-cta-section fade-in">
-          <h2>¿Listo para tu próxima aventura?</h2>
-          <p>Unite a la familia Motor Nation y descubrí por qué somos la elección #1 en vehículos. <b>¡Te esperamos con la mejor atención y los mejores precios!</b></p>
-          <a href="catalogo.html" class="btn">Ver Catálogo</a>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="about-hero-content">
+          <h1 class="fade-in">Nuestra Historia</h1>
+          <p class="fade-in">Más de 15 años construyendo sueños sobre ruedas en Paraguay</p>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-info">
-          <h3>MOTOR NATION</h3>
-          <p>La mejor experiencia en compra de vehículos nuevos y usados en Paraguay. Calidad, confianza y el mejor servicio.</p>
-        </div>
-        <div class="footer-links">
-          <h3>Enlaces Rápidos</h3>
-          <ul>
-            <li><a href="index.html#home">Inicio</a></li>
-            <li><a href="catalogo.html">Catálogo</a></li>
-            <li><a href="about.html">Nosotros</a></li>
-            <li><a href="index.html#contact">Contacto</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h3>Servicios</h3>
-          <ul>
-            <li><a href="#">Vehículos usados</a></li>
-            <li><a href="#">Financiamiento</a></li>
-            <li><a href="#">Trámites</a></li>
-            <li><a href="#">Seguros</a></li>
-            <li><a href="#">Servicio técnico</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h3>Contacto</h3>
-          <ul>
-            <li><a href="#">+595 21 123 4567</a></li>
-            <li><a href="#">info@motornation.com.py</a></li>
-            <li><a href="#">Av. Mariscal López 1234, Asunción, Paraguay</a></li>
-          </ul>
+    <!-- Story Section -->
+    <section class="story-section">
+      <div class="container">
+        <div class="story-grid">
+          <div class="video-container">
+            <iframe
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/TlY6_lCJ79c?si=L7P9_QhGlmIDDKcG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+              title="Historia de Motor Nation - Nuestra Pasión por los Vehículos"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+          
+          <div class="story-content">
+            <h2>Nuestra Pasión por los Vehículos</h2>
+            <p>
+              Todo comenzó en 2008 con un sueño simple pero ambicioso: crear el concesionario más confiable y orientado al cliente en Paraguay. Fundado por un grupo de entusiastas de los automóviles, Motor Nation nació de la pasión por conectar a las personas con el vehículo perfecto para sus necesidades.
+            </p>
+            <p>
+              Desde nuestros humildes comienzos con un pequeño lote de 20 vehículos, hemos crecido hasta convertirnos en uno de los concesionarios más respetados del país, con más de 500 vehículos en stock y un equipo de 50 profesionales dedicados.
+            </p>
+            
+            
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="current-year"></span> Motor Nation. Todos los derechos reservados.</p>
-        <div class="creditos">
-          Desarrollado por <a href="https://kento16m.github.io/MiraiSoft/" target="_blank">MiraiSoft</a>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">1</span>
+            <span class="stat-label">Años de Experiencia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">25</span>
+            <span class="stat-label">Clientes Satisfechos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">62</span>
+            <span class="stat-label">Vehículos en Stock</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Profesionales</span>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <script>
-    // Header scroll efecto
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
-    });
-    // Mobile menu
-    const menuToggle = document.getElementById("menu-toggle");
-    const mainNav = document.getElementById("main-nav");
-    menuToggle.addEventListener("click", () => mainNav.classList.toggle("active"));
-    document.querySelectorAll(".nav-link").forEach(link => {
-      link.addEventListener("click", () => mainNav.classList.remove("active"));
-    });
-    // Año en footer
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-    // Animación de fade-in al hacer scroll
-    function revealOnScroll() {
-      document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) el.style.opacity = 1;
-      });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('DOMContentLoaded', revealOnScroll);
-  </script>
-</body>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para tu próxima aventura?</h2>
+          <p>
+            Unite a la familia Motor Nation y descubrí por qué somos la elección #1 en vehículos. 
+            ¡Te esperamos con la mejor atención y los mejores precios!
+          </p>
+          <a href="catalogo.html" class="cta-button">Ver Catálogo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Visitanos en Nuestro Showroom</h2>
+        <p class="section-subtitle">Te esperamos en nuestras instalaciones para brindarte la mejor atención personalizada.</p>
+        
+        <div class="contact-container">
+          <div class="contact-info-column">
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Dirección</h3>
+                  <p>Av. Mariscal López 1234, Asunción, Paraguay</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Teléfono</h3>
+                  <p>+595 21 123 4567</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Email</h3>
+                  <p>info@motornation.com.py</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Horario de atención</h3>
+                  <p>Lunes a Viernes: 8:00 - 18:00</p>
+                  <p>Sábados: 8:00 - 13:00</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Botón de WhatsApp mejorado -->
+            <div class="whatsapp-button-container">
+              <a href="https://wa.me/595XXXXXXXXX?text=Hola%20Motor%20Nation,%20me%20interesa%20conocer%20más%20sobre%20su%20historia%20y%20vehículos" class="whatsapp-contact-btn" target="_blank">
+                <div class="whatsapp-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                </div>
+                <span>Contáctanos por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="map-column">
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3608.041564997982!2d-57.568055824615875!3d-25.269187177664683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDE2JzA5LjEiUyA1N8KwMzMnNTUuNyJX!5e0!3m2!1sja!2spy!4v1747849807495!5m2!1sja!2spy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-info">
+            <h3>MOTOR NATION</h3>
+            <p>La mejor experiencia en compra de vehículos nuevos y usados en Paraguay. Calidad, confianza y el mejor servicio desde 2008.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <svg viewBox="0 0 24 24">
+                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg viewBox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg viewBox="0 0 24 24">
+                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h3>Enlaces Rápidos</h3>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="catalogo.html">Vehículos</a></li>
+              <li><a href="sobre-nosotros.html">Nosotros</a></li>
+              <li><a href="index.html#contact">Contacto</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h3>Servicios</h3>
+            <ul>
+              <li><a href="#">Vehículos nuevos</a></li>
+              <li><a href="#">Vehículos usados</a></li>
+              <li><a href="#">Financiamiento</a></li>
+              <li><a href="#">Trámites</a></li>
+              <li><a href="#">Seguros</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h3>Información de Contacto</h3>
+            <ul>
+              <li><a href="tel:+59521123456">+595 21 123 4567</a></li>
+              <li><a href="mailto:info@motornation.com.py">info@motornation.com.py</a></li>
+              <li><a href="#">Av. Mariscal López 1234, Asunción, Paraguay</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; <span id="current-year"></span> Motor Nation. Todos los derechos reservados.</p>
+          <div class="creditos">
+            Desarrollado por <a href="https://kento16m.github.io/MiraiSoft/" target="_blank">MiraiSoft</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botón para volver arriba -->
+    <a href="#" id="back-to-top" class="back-to-top">
+      <svg viewBox="0 0 24 24">
+        <path d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </a>
+
+    <script>
+      // =================== PRELOADER ===================
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const preloader = document.getElementById("preloader")
+          preloader.style.opacity = "0"
+          setTimeout(() => {
+            preloader.style.display = "none"
+          }, 500)
+        }, 1500)
+      })
+
+      // =================== HEADER SCROLL ===================
+      const header = document.getElementById("header")
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled")
+        } else {
+          header.classList.remove("scrolled")
+        }
+      })
+
+      // =================== MOBILE MENU ===================
+      const menuToggle = document.getElementById("menu-toggle")
+      const mainNav = document.getElementById("main-nav")
+
+      menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("active")
+      })
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active")
+        })
+      })
+
+      // =================== BACK TO TOP BUTTON ===================
+      const backToTopButton = document.getElementById("back-to-top")
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add("active")
+        } else {
+          backToTopButton.classList.remove("active")
+        }
+      })
+
+      // =================== CURRENT YEAR ===================
+      document.getElementById("current-year").textContent = new Date().getFullYear()
+
+      // =================== SMOOTH SCROLLING ===================
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+          const target = document.querySelector(this.getAttribute('href'))
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            })
+          }
+        })
+      })
+
+      // =================== ANIMATIONS ON SCROLL ===================
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in')
+            observer.unobserve(entry.target)
+          }
+        })
+      }, observerOptions)
+
+      // Observe elements for animation
+      document.querySelectorAll('.story-content, .stat-item, .contact-item').forEach((el) => {
+        observer.observe(el)
+      })
+
+      // =================== COUNTER ANIMATION ===================
+      const animateCounters = () => {
+        const counters = document.querySelectorAll('.stat-number')
+        
+        counters.forEach(counter => {
+          const target = parseInt(counter.textContent.replace(/\D/g, ''))
+          const increment = target / 100
+          let current = 0
+          
+          const updateCounter = () => {
+            if (current < target) {
+              current += increment
+              if (counter.textContent.includes('+')) {
+                counter.textContent = Math.ceil(current) + '+'
+              } else {
+                counter.textContent = Math.ceil(current)
+              }
+              requestAnimationFrame(updateCounter)
+            } else {
+              counter.textContent = counter.textContent.includes('+') ? target + '+' : target
+            }
+          }
+          
+          updateCounter()
+        })
+      }
+
+      // Trigger counter animation when stats section is visible
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters()
+            statsObserver.unobserve(entry.target)
+          }
+        })
+      }, { threshold: 0.5 })
+
+      const statsSection = document.querySelector('.stats-section')
+      if (statsSection) {
+        statsObserver.observe(statsSection)
+      }
+
+      // =================== ENHANCED WHATSAPP BUTTON ===================
+      const whatsappButton = document.querySelector('.whatsapp-contact-btn')
+      if (whatsappButton) {
+        whatsappButton.addEventListener('mouseover', function() {
+          this.classList.add('glow')
+        })
+        
+        whatsappButton.addEventListener('mouseout', function() {
+          this.classList.remove('glow')
+        })
+      }
+    </script>
+  </body>
 </html>

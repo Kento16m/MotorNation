@@ -130,6 +130,7 @@ svg {
   z-index: 100;
   padding: 20px 0;
   transition: var(--transition);
+  
 }
 
 .header.scrolled {
@@ -176,6 +177,7 @@ svg {
 .nav-link.active {
   color: var(--color-red);
 }
+
 
 /* =================== HERO SECTION =================== */
 .hero {
@@ -278,6 +280,13 @@ svg {
 
 .btn-full {
   width: 100%;
+}
+
+.btn-seguirleyendo {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  margin-left: 300px;
+  margin-top: 20px;
 }
 
 /* =================== SECTION STYLES =================== */

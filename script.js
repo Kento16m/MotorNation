@@ -113,68 +113,6 @@ const vehicles = [
     image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80",
     isNew: false,
   },
-  {
-    id: "7",
-    type: "SUV",
-    name: "Kia Sportage 2023",
-    price: "₲ 310.000.000",
-    year: "2023",
-    transmission: "Automático",
-    image: "https://www.carpixel.net/w/869b70cf5ba2669aded681627d3e4390/kia-sportage-hev-wallpaper-hd-107452.jpg",
-    isNew: true,
-  },
-  {
-    id: "8",
-    type: "Sedan",
-    name: "Chevrolet Onix Plus",
-    price: "₲ 135.000.000",
-    year: "2022",
-    mileage: "10.000 km",
-    transmission: "Automático",
-    image: "https://cdn.motor1.com/images/mgl/Rv3g3/s1/chevrolet-presento-los-nuevos-onix-rs-y-onix-plus-midnight.jpg",
-    isNew: false,
-  },
-  {
-    id: "9",
-    type: "Camioneta",
-    name: "Chevrolet S10 High Country",
-    price: "₲ 270.000.000",
-    year: "2023",
-    transmission: "Automático",
-    image: "https://cuyomotor.com.ar/wp-content/uploads/2023/06/Chevrolet-s10-Midnight-002.jpg",
-    isNew: true,
-  },
-  {
-    id: "10",
-    type: "Moto",
-    name: "Kawasaki Ninja 400",
-    price: "₲ 90.000.000",
-    year: "2023",
-    transmission: "Manual",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhQ8O6HN2dK4dL8JsK9RraJ_w9RtJz68yfXA&s",
-    isNew: true,
-  },
-  {
-    id: "11",
-    type: "SUV",
-    name: "Mazda CX-5",
-    price: "₲ 330.000.000",
-    year: "2023",
-    transmission: "Automático",
-    image: "https://autohusetvestergaard.imgix.net/7531/2022_mazda_cx-5_launch_roed_front_vej_1920x1080.jpg?q=80",
-    isNew: true,
-  },
-  {
-    id: "12",
-    type: "Sedan",
-    name: "Volkswagen Virtus",
-    price: "₲ 140.000.000",
-    year: "2022",
-    mileage: "13.500 km",
-    transmission: "Automático",
-    image: "https://cdn.motor1.com/images/mgl/KbJyll/s1/2022-vw-virtus.jpg",
-    isNew: false,
-  },
 ]
 
 // =================== TESTIMONIALS DATA ===================
@@ -229,34 +167,6 @@ const faqItems = [
   },
 ]
 
-// =================== BLOG DATA ===================
-const blogPosts = [
-  {
-    title: "Los 5 autos más económicos en combustible del 2023",
-    date: "12 Mayo, 2023",
-    excerpt:
-      "Descubre cuáles son los vehículos que te ayudarán a ahorrar en combustible sin sacrificar comodidad ni estilo.",
-    image:
-      "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    slug: "autos-economicos-2023",
-  },
-  {
-    title: "Guía definitiva para comprar tu primera moto",
-    date: "28 Abril, 2023",
-    excerpt: "Todo lo que necesitas saber antes de adquirir tu primera motocicleta: desde tipos hasta mantenimiento.",
-    image:
-      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    slug: "guia-comprar-primera-moto",
-  },
-  {
-    title: "¿Cómo financiar tu vehículo con las mejores tasas?",
-    date: "15 Abril, 2023",
-    excerpt: "Aprende a conseguir el mejor financiamiento para tu próximo auto o moto con estos consejos financieros.",
-    image:
-      "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    slug: "financiamiento-vehiculos",
-  },
-]
 
 // =================== RENDER VEHICLES ===================
 const vehiclesGrid = document.getElementById("vehicles-grid")
