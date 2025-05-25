@@ -285,9 +285,33 @@ svg {
 .btn-seguirleyendo {
   background-color: var(--color-black);
   color: var(--color-white);
-  margin-left: 300px;
-  margin-top: 20px;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 20px auto;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
+
+/* Centrar horizontalmente */
+.btn-seguirleyendo {
+  display: block;
+  max-width: 200px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+/* Responsive font size y padding */
+@media (max-width: 600px) {
+  .btn-seguirleyendo {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
 
 /* =================== SECTION STYLES =================== */
 .section {
