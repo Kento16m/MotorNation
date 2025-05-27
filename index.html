@@ -51,11 +51,9 @@
     <header id="header" class="header">
       <div class="container">
         <a href="#" class="logo">MOTORNATION</a>
-        
-        <button id="menu-toggle" class="menu-toggle">
+        <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
           <span>☰</span>
         </button>
-        
         <nav id="main-nav" class="main-nav">
           <ul>
             <li><a href="#home" class="nav-link">Inicio</a></li>
@@ -71,7 +69,6 @@
     <section id="home" class="hero">
       <div class="hero-overlay"></div>
       <img src="https://th.bing.com/th/id/R.34fa96025cd5372c8c6293890e45b688?rik=HRxjDafbWub6Hg&pid=ImgRaw&r=0" alt="MOTOR NATION - Vehículos de calidad en Paraguay" class="hero-img">
-      
       <div class="container hero-content">
         <div class="hero-text">
           <h1 class="fade-in">Tu próximo vehículo está aquí</h1>
@@ -376,6 +373,20 @@
     <script src="script.js"></script>
     <script src="preloader.js"></script>
     <script>
+      // Script para el menú móvil
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mainNav = document.getElementById("main-nav");
+        menuToggle.addEventListener("click", function () {
+          mainNav.classList.toggle("active");
+        });
+        // Cierra el menú al hacer click en un enlace
+        document.querySelectorAll(".nav-link").forEach(link => {
+          link.addEventListener("click", () => {
+            mainNav.classList.remove("active");
+          });
+        });
+      });
       // Script para el efecto de partículas
       document.addEventListener('DOMContentLoaded', function() {
         // Crear partículas para el botón de WhatsApp en la sección de contacto
