@@ -132,7 +132,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
-      margin-bottom: 80px;
+      margin-bottom: 20px;
     }
     
     .video-container {
@@ -385,6 +385,95 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Estilos de Visión y Misión */
+    .vision-mision-section {
+      background: linear-gradient(120deg, #fff 60%, #f8f9fa 100%);
+      padding: 0 0 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .vision-mision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: stretch;
+    }
+
+    .vision-card, .mision-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 32px rgba(234, 56, 76, 0.08), 0 2px 8px rgba(0,0,0,0.04);
+      padding: 50px 35px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .vision-card:hover, .mision-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(234, 56, 76, 0.13), 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .vision-icon, .mision-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ea384c22 0%, #ff6b8133 100%);
+      border-radius: 50%;
+      box-shadow: 0 4px 18px rgba(234, 56, 76, 0.08);
+    }
+
+    .vision-title, .mision-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      background: linear-gradient(45deg, #ea384c, #ff6b81);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+
+    .vision-text, .mision-text {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 0;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 900px) {
+      .vision-mision-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+      .vision-card, .mision-card {
+        padding: 40px 20px 30px;
+      }
+      .vision-title, .mision-title {
+        font-size: 26px;
+      }
+      .vision-text, .mision-text {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .vision-mision-section {
+        padding: 50px 0 30px;
+      }
+      .vision-card, .mision-card {
+        padding: 30px 10px 20px;
+      }
+      .vision-title, .mision-title {
+        font-size: 22px;
+      }
+    }
     </style>
   </head>
 
@@ -459,6 +548,40 @@
             
             
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visión y Misión Section -->
+    <section class="vision-mision-section">
+      <div class="container vision-mision-grid">
+        <!-- Visión -->
+        <div class="vision-card">
+          <div class="vision-icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="30" stroke="#ea384c" stroke-width="4"/>
+              <path d="M32 18C23 18 15.5 26.5 15.5 32C15.5 37.5 23 46 32 46C41 46 48.5 37.5 48.5 32C48.5 26.5 41 18 32 18Z" stroke="#ea384c" stroke-width="3"/>
+              <circle cx="32" cy="32" r="6" fill="#ea384c"/>
+            </svg>
+          </div>
+          <h2 class="vision-title">Visión</h2>
+          <p class="vision-text">
+            Ser la empresa líder en Paraguay en soluciones de movilidad, reconocidos por la innovación, la excelencia y la pasión por transformar sueños en realidades sobre ruedas.
+          </p>
+        </div>
+        <!-- Misión -->
+        <div class="mision-card">
+          <div class="mision-icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="8" y="16" width="48" height="32" rx="8" stroke="#ff6b81" stroke-width="4"/>
+              <path d="M32 24V40" stroke="#ff6b81" stroke-width="3" stroke-linecap="round"/>
+              <path d="M24 32H40" stroke="#ff6b81" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2 class="mision-title">Misión</h2>
+          <p class="mision-text">
+            Brindar a cada cliente una experiencia única en la compra y postventa de vehículos, con asesoramiento profesional, transparencia y un compromiso inquebrantable con la calidad y la confianza.
+          </p>
         </div>
       </div>
     </section>
