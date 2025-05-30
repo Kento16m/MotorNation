@@ -119,51 +119,51 @@ const vehicles = [
 const testimonials = [
   {
     quote:
-      "Excelente servicio, encontré mi auto soñado en Motor Nation. El proceso de compra fue rápido y el personal muy profesional.",
-    author: "Carlos Martínez",
+      "escribir el comentario del cliente",
+    author: "Usuario 1",
     position: "Empresario",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+      "",
   },
   {
     quote:
-      "La mejor experiencia comprando una moto. Tienen mucha variedad y los precios son competitivos. Recomiendo Motor Nation al 100%.",
-    author: "Laura González",
+      "escribir el comentario del cliente.",
+    author: "Usuario 2",
     position: "Diseñadora",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+      "",
   },
   {
     quote:
-      "Me atendieron de manera personalizada y pudieron asesorarme con todas mis dudas. Sin duda volvería a comprar aquí.",
-    author: "Roberto Sánchez",
+      "escribir el comentario del cliente.",
+    author: "Usuario 3",
     position: "Ingeniero",
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+      "",
   },
 ]
 
 // =================== FAQ DATA ===================
 const faqItems = [
   {
-    question: "¿Ofrecen garantía en los vehículos usados?",
+    question: "¿Pregunta 1?",
     answer:
-      "Sí, todos nuestros vehículos usados vienen con una garantía de 3 meses en motor y caja. Además, realizamos una inspección completa de 150 puntos antes de ponerlos a la venta para asegurar su calidad.",
+      "Respuesta ",
   },
   {
-    question: "¿Cuáles son las formas de pago disponibles?",
+    question: "¿Pregunta 2?",
     answer:
-      "Aceptamos pagos en efectivo, transferencias bancarias, y financiamiento a través de nuestros bancos aliados. También aceptamos vehículos como parte de pago previa tasación.",
+      "Respuesta 2",
   },
   {
-    question: "¿Realizan envíos a todo el país?",
+    question: "¿Pregunta 3?",
     answer:
-      "Sí, contamos con servicio de entrega a domicilio en todo Paraguay. El costo del envío depende de la distancia y el tipo de vehículo.",
+      "Respuesta 3",
   },
   {
-    question: "¿Cuánto tiempo toma el proceso de compra?",
+    question: "¿Pregunta 4?",
     answer:
-      "Una vez seleccionado el vehículo y aprobado el financiamiento (si aplica), el proceso de compra puede completarse en 24-48 horas. Para pagos al contado, el proceso es aún más rápido.",
+      "Respuesta 4",
   },
 ]
 
