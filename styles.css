@@ -1804,3 +1804,91 @@ svg {
       max-width: 100%;
     }
   }
+
+  /* =================== TRADE-IN SECTION =================== */
+.trade-in-section {
+  position: relative;
+  height: 50vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+
+.trade-in-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+  z-index: 1;
+}
+
+.trade-in-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transform: scale(1.05);
+  transition: transform 10s ease;
+}
+
+.trade-in-section:hover .trade-in-img {
+  transform: scale(1);
+}
+
+.trade-in-content {
+  position: relative;
+  z-index: 2;
+}
+
+.trade-in-text {
+  max-width: 600px;
+  color: var(--color-white);
+}
+
+.trade-in-text h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.trade-in-text p {
+  font-size: 20px;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .trade-in-section {
+    height: 60vh;
+  }
+  
+  .trade-in-text h2 {
+    font-size: 32px;
+  }
+  
+  .trade-in-text p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .trade-in-section {
+    height: 70vh;
+  }
+  
+  .trade-in-text h2 {
+    font-size: 28px;
+  }
+  
+  .trade-in-text p {
+    font-size: 16px;
+  }
+}
