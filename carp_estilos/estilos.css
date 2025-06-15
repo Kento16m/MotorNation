@@ -1087,6 +1087,10 @@ svg {
     padding-top: 70px;
   }
 
+  .container {
+    padding: 0 10px;
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -1134,7 +1138,7 @@ svg {
   }
 
   .vehicle-details-card {
-    padding: 30px 20px;
+    padding: 30px 10px;
   }
 
   .thumbnail-gallery {
@@ -1161,11 +1165,11 @@ svg {
   }
 
   .spec-card {
-    padding: 25px 20px;
+    padding: 25px 10px;
   }
 
   .map {
-    min-height: 300px;
+    min-height: 250px;
   }
 
   .footer-grid {
@@ -1195,59 +1199,99 @@ svg {
     width: 40px;
     height: 40px;
   }
+
+  .vehicle-gallery .main-image img {
+    height: 220px;
+  }
+
+  .location-container,
+  .location-details,
+  .location-item {
+    text-align: center;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+  }
+
+  .location-icon {
+    margin: 0 auto 10px auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .location-content h3 {
+    font-size: 26px !important;
+    text-align: center;
+  }
+
+  .location-content p {
+    font-size: 20px !important;
+    text-align: center;
+  }
 }
 
-@media (max-width: 480px) {
-  .vehicle-info-main {
-    padding: 20px 0 60px;
+@media (max-width: 600px) {
+  .container {
+    padding: 0 5px;
+  }
+
+  .vehicle-header {
+    margin-bottom: 30px;
   }
 
   .vehicle-main-title {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .vehicle-price {
-    font-size: 32px;
+    font-size: 24px;
+  }
+
+  .vehicle-info-main {
+    padding: 10px 0 30px;
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .section-subtitle {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .vehicle-details-card {
-    padding: 20px 15px;
+    padding: 10px 5px;
+    border-radius: 12px;
   }
 
   .whatsapp-cta-text h2 {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .whatsapp-cta-text p {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .whatsapp-mega-btn {
-    padding: 15px;
+    padding: 10px;
+    font-size: 15px;
   }
 
   .whatsapp-main-text {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .whatsapp-sub-text {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .spec-card {
-    padding: 20px 15px;
+    padding: 10px 5px;
   }
 
   .spec-header h3 {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .location-item {
@@ -1262,11 +1306,50 @@ svg {
 
   .thumbnail-gallery {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 6px;
   }
 
   .thumbnail {
-    height: 60px;
+    height: 40px;
+  }
+
+  .footer {
+    padding: 30px 0 10px;
+  }
+
+  .footer-info h3,
+  .footer-links h3 {
+    font-size: 14px;
+  }
+
+  .footer-info p,
+  .footer-links a,
+  .footer-links ul li {
+    font-size: 12px;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .vehicle-main-title {
+    font-size: 16px;
+  }
+  .vehicle-price {
+    font-size: 16px;
+  }
+  .section-title {
+    font-size: 14px;
+  }
+  .section-subtitle {
+    font-size: 10px;
+  }
+  .footer-info p,
+  .footer-links a,
+  .footer-links ul li {
+    font-size: 10px;
   }
 }
 
