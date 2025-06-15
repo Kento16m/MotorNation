@@ -178,6 +178,25 @@ function createParticles(button) {
   }
 }
 
+// Visualizador de imagen en pantalla completa solo para la imagen principal
+document.getElementById('main-vehicle-image').addEventListener('click', function () {
+  const viewer = document.getElementById('image-viewer');
+  const viewerImg = document.getElementById('viewer-img');
+  viewerImg.src = this.src;
+  viewer.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+});
+document.getElementById('close-viewer').onclick = function() {
+  document.getElementById('image-viewer').style.display = 'none';
+  document.body.style.overflow = '';
+};
+document.getElementById('image-viewer').onclick = function(e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+};
+
 // Add CSS for particle animation
 const style = document.createElement("style")
 style.textContent = `
