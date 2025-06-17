@@ -939,6 +939,13 @@ spy!4v1747849807495!5m2!1sja!2spy" width="600" height="450" style="border:0;" al
         const resultsCount = document.getElementById('results-count');
         const countNumber = document.getElementById('count-number');
         
+        // Ordenar vehículos - disponibles primero
+        vehiclesToRender.sort((a, b) => {
+          if (a.status === 'disponible' && b.status !== 'disponible') return -1;
+          if (a.status !== 'disponible' && b.status === 'disponible') return 1;
+          return 0;
+        });
+
         vehiclesGrid.innerHTML = '';
         
         if (vehiclesToRender.length === 0) {
