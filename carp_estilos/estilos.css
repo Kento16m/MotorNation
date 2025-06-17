@@ -1417,3 +1417,49 @@ svg {
     color: var(--color-black) !important;
   }
 }
+
+
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+h1, h2, h3 {
+  color: #2d2d2d;
+  margin-bottom: 12px;
+}
+
+button, input, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 8px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  button, input, select {
+    font-size: 1rem;
+    padding: 10px;
+  }
