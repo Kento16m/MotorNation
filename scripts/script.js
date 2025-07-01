@@ -191,24 +191,19 @@ const testimonials = [
 // =================== FAQ DATA ===================
 const faqItems = [
   {
-    question: "¿Pregunta 1?",
+    question: "¿El vehiculo es mantenido en el representante?",
     answer:
-      "Respuesta ",
+      "Depende de cada vehiculo, algunos clientes optan por mantener en el representante y otros prefieren llevar a un taller de confianza. ",
   },
   {
-    question: "¿Pregunta 2?",
+    question: "¿Ustedes compran vehiculos en venta?",
     answer:
-      "Respuesta 2",
+      "Si, compramos vehiculos en venta en oferta, el pago siempre es al contado y depende del estado del vehiculo.",
   },
   {
-    question: "¿Pregunta 3?",
+    question: "¿Hace cuanto estan en el rubro en compra y venta?",
     answer:
-      "Respuesta 3",
-  },
-  {
-    question: "¿Pregunta 4?",
-    answer:
-      "Respuesta 4",
+      "Hace casi una decada, y esperamos seguir por muchos años mas",
   },
 ]
 
