@@ -50,68 +50,113 @@ document.getElementById("current-year").textContent = new Date().getFullYear()
 // =================== VEHICLES DATA ===================
 const vehicles = [
   {
-    id: "1",
-    type: "SUV",
-    name: "Toyota RAV4 2023",
-    price: "₲ 350.000.000",
-    year: "2023",
-    transmission: "Automático",
-    image: "https://th.bing.com/th/id/OIP.NY04i2ZOEvOng_KjoPHUkQHaEK?rs=1&pid=ImgDetMain",
-    isNew: true,
-  },
-  {
-    id: "2",
-    type: "Sedan",
-    name: "Nissan Sentra",
-    price: "₲ 180.000.000",
-    year: "2023",
-    transmission: "Automático",
-    image: "https://th.bing.com/th/id/OIP.nQaeDt7umlsj_-lArfJxPwHaEK?rs=1&pid=ImgDetMain",
-    isNew: true,
-  },
-  {
-    id: "3",
-    type: "Moto",
-    name: "Honda CBR 650R",
+    id: 4,
+    type: "auto",
+    brand: "Kia", 
+    name: "Kia Seltos EX Full",
     price: "₲ 120.000.000",
+    year: "2021",
+    transmission: "Automático",
+    fuel: "Diesel",
+    mileage: "60.000 km",
+    status: "disponible",
+    engine: "1.5",
+    details: "Ficha en Garden, Único dueño",
+    image: "https://ik.imagekit.io/cvxtd4voq/AUTO-KIA%20SELTOS%202021/1.jpeg?updatedAt=1750871784164",
+    detailPage: "catalogo/autos/catalogo 4 KIA SELTOS EX FULL 2021.html"
+  },
+  // VOLVO XC60
+  {
+    id: 5,
+    type: "auto", 
+    brand: "Volvo",
+    name: "Volvo XC60 Ultimate Dark",
+    price: "$ 33.600",
+    year: "2025",
+    transmission: "Automático",
+    fuel: "Híbrido Enchufable",
+    mileage: "20.000 km",
+    status: "disponible",
+    engine: "2.0",
+    power: "462 HP",
+    details: "Tracción Integral, Ficha en Garden",
+    financing: {
+      entry: 9500,
+      monthly: 779,
+      reinforcements: [3840, 3840, 3840, 3840, 33600]
+    },
+    image: "https://ik.imagekit.io/cvxtd4voq/AUTO-VOLVO%20XC60%202025/1.jpeg?updatedAt=1750872315680",
+    detailPage: "catalogo/autos/catalogo 5 VOLVO XC60 ULTIMATE DARK 2025.html"
+  },
+
+  // MERCEDES C300
+  {
+    id: 6,
+    type: "auto",
+    brand: "Mercedes",
+    name: "Mercedes-Benz C300 Cabriolet AMG Line",
+    price: "$ 38.500",
+    year: "2018",
+    transmission: "Automática",
+    fuel: "Gasolina",
+    mileage: "70.000 km",
+    status: "disponible",
+    engine: "2.0L Turbo",
+    power: "245 CV",
+    image: "https://ik.imagekit.io/cvxtd4voq/AUTO-MERCEDES-BENZ%20C300%20CABRIOLET%20AMG%20LINE/1.jpeg?updatedAt=1750873775014",
+    detailPage: "catalogo/autos/catalogo 6 MERCEDES-BENZ C300 CABRIOLET AMG LINE 2018.html"
+  },
+
+  // TOYOTA HILUX
+  {
+    id: 7,
+    type: "auto",
+    brand: "Toyota",
+    name: "Toyota Hilux SRV Limited",
+    price: "$ 39.000",
+    year: "2019",
+    transmission: "Automática",
+    fuel: "Diesel",
+    mileage: "30.300 km",
+    status: "disponible",
+    engine: "2.8 Turbo",
+    details: "4x4, Ficha en Toyotoshi",
+    image: "https://ik.imagekit.io/cvxtd4voq/AUTO-TOYOTA%20HILUX%20SRV%202019/1.jpeg?updatedAt=1750872529429",
+    detailPage: "catalogo/autos/catalogo 7 TOYOTA HILUX SRV LIMITED 2019.html"
+  },
+
+  // JEEP GRAND CHEROKEE
+  {
+    id: 8,
+    type: "auto",
+    brand: "Jeep",
+    name: "Jeep Grand Cherokee Laredo",
+    price: "$ 17.500",
+    year: "2018",
+    transmission: "Automática",
+    fuel: "Gasolina",
+    mileage: "42.900 km",
+    status: "disponible",
+    details: "4x2, Único dueño, De Garden",
+    image: "https://ik.imagekit.io/cvxtd4voq/AUTO-JEEP%20GRAND%20CHEROKEE%202018/1.jpeg?updatedAt=1750871734126",
+    detailPage: "catalogo/autos/catalogo 8 JEEP GRAND CHEROKEE LAREDO 2018.html"
+  },
+
+  // POLARIS RZR
+  {
+    id: 9,
+    type: "utv",
+    brand: "Polaris",
+    name: "Polaris RZR S",
+    price: "$ 9.200",
     year: "2023",
-    transmission: "Manual",
-    image: "https://lemotard.eu/wp-content/uploads/2021/02/Honda-CBR-650R.jpg",
-    isNew: true,
-  },
-  {
-    id: "4",
-    type: "Camioneta",
-    name: "Ford Ranger Limited",
-    price: "₲ 280.000.000",
-    year: "2022",
-    mileage: "15.000 km",
-    transmission: "Automático",
-    image: "https://th.bing.com/th/id/OIP.OiLlOgipgKfwvPSqt1chiAHaE8?rs=1&pid=ImgDetMain",
-    isNew: false,
-  },
-  {
-    id: "5",
-    type: "Moto",
-    name: "Yamaha MT-07",
-    price: "₲ 85.000.000",
-    year: "2022",
-    mileage: "8.500 km",
-    transmission: "Manual",
-    image:
-      "https://images.unsplash.com/photo-1580310614729-ccd69652491d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    isNew: false,
-  },
-  {
-    id: "6",
-    type: "Sedan",
-    name: "Hyundai Elantra",
-    price: "₲ 145.000.000",
-    year: "2022",
-    mileage: "12.000 km",
-    transmission: "Automático",
-    image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80",
-    isNew: false,
+    transmission: "Automática",
+    mileage: "5.200 km",
+    status: "vendido",
+    engine: "800cc",
+    details: "4x4 Alta y Baja, Suspensiones Fox",
+    image: "https://ik.imagekit.io/cvxtd4voq/UTV-POLARIS%20RZR%20S/1.jpeg?updatedAt=1750872175071",
+    detailPage: "catalogo/utv/catalogo 9 UTV POLARIS RZR S 800CC.html"
   },
 ]
 
